@@ -1,0 +1,42 @@
+---
+title: "FindAGeneProject"
+author: 'Nicholas Do (PID: A15053002)'
+date: "11/30/2021"
+output: html_document
+---
+
+```{r}
+library(bio3d)
+```
+
+```{r}
+projectdata <- read.fasta("ProjectData")
+
+seqid <- seqidentity(projectdata)
+```
+```{r}
+heatmap(seqid)
+```
+
+
+
+```{r}
+conseq <- consensus(projectdata)
+
+```
+
+
+
+
+
+```{r}
+blast.pdb(conseq$seq, database = "pdb", time.out = NULL, chain.single = TRUE)
+```
+
+
+
+
+```{r}
+#blast.pdb(projectdata, database = "pdb", time.out = NULL, chain.single = TRUE)
+```
+
