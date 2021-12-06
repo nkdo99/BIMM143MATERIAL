@@ -1,0 +1,84 @@
+---
+title: 'Lab 11: Structural Bioinformatics II'
+author: 'Nicholas Do (PID: 15053002)'
+date: "11/14/2021"
+output: pdf_document
+---
+
+
+# 1.1 Obtaining and inspecting our input structure
+```{r}
+library(bio3d)
+
+
+file.name <- get.pdb("1hsg")
+hiv <- read.pdb(file.name)
+```
+
+
+
+```{r}
+hiv
+```
+> Q1: What is the name of the two non protein resid values in this structure? What does resid
+correspond to and how would you get a listing of all reside values in this structure? 
+
+The two non protein resid values are HOH and MK1. Resid corresponds
+to the residues within the structure. To get a list of all residue
+values in the structure look at the variable through: hiv$atom$resid
+
+
+```{r}
+head(hiv$atom$resid, n = 20)
+```
+
+
+# 1.2 Prepare initial protein and ligand input files
+
+
+
+```{r}
+prot <- trim.pdb(hiv, "protein")
+lig <- trim.pdb(hiv, "ligand")
+
+write.pdb(prot, file="1hsg_protein.pdb")
+write.pdb(lig, file="1hsg_ligand.pdb")
+```
+
+
+# 1.3 Using AutoDockTools to setup protein docking input
+
+
+> Q2: Can you locate the binding site visually? Note that
+crystal structures normally lack hydrogen atoms, why? 
+
+
+Yes, you can locate the binding site visually. The hydrogen atoms
+are not generally required to represent the structure, and 
+normally crystal structures lack hydrogen atoms. 
+
+
+> Q3: Look at the charges. Does it make sense (e.g. based on your knowledge of the
+physiochemical properties of amino acids)?
+
+Yes,the charges make sense
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

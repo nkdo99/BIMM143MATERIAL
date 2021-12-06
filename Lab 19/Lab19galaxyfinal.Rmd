@@ -1,0 +1,134 @@
+---
+title: "Lab 19: Galaxy"
+author: 'Nicholas Do (PID: 15053002)'
+date: "12/5/2021"
+output: pdf_document
+---
+
+
+
+#Section 1. Proportion of G/G in a population
+
+>> Q1: What are those 4 candidate SNPs?
+
+rs12936231, rs8067378, rs9303277, and rs7216389
+
+>> Q2: What three genes do these variants overlap or effect?
+
+ZPBP2, IKZF3, and GSDMB
+
+
+>> Q3: What is the location of rs8067378 and what are the different alleles for rs8067378?
+
+Chromosome 17: 39,894,595-39,895,595
+
+>> Q4: Name at least 3 downstream genes for rs8067378?
+
+GSDMB, CSF3, PSMD3
+
+
+>> Q5: What proportion of the Mexican Ancestry in Los Angeles sample population (MXL) are
+homozygous for the asthma associated SNP (G|G)?
+
+
+
+```{r}
+data <- read.csv("373530-SampleGenotypes-Homo_sapiens_Variation_Sample_rs8067378 (2).csv")
+data
+```
+
+```{r}
+table(data$Genotype..forward.strand.)
+```
+
+There are 29 out of the 85 total that are homozygous for the asthma associated SNP, for a proportion of 34.12% 
+
+
+```{r}
+table(data$Genotype..forward.strand.) / nrow(data) * 100
+```
+
+
+
+
+>> Q6. Back on the ENSEMBLE page, use the “search for a sample” field above to find the
+particular sample HG00109. This is a male from the GBR population group. What is the
+genotype for this sample?
+
+
+
+This sample's genotype is G|G
+
+
+
+
+#Section 2: Initial RNA-Seq analysis
+
+
+>> Q7: How many sequences are there in the first file? What is
+the file size and format of the data? Make sure the format is
+fastqsanger here!
+
+
+There are 3,863 sequences in the HG00109_1.fastq file.
+
+
+>> Q8: What is the GC content and sequence length of the second fastq file?
+
+HG00109_2 has a %GC of 54%
+
+>> Q9: How about per base sequence quality? Does any base have a mean quality score below
+20?
+
+The per base sequence quality remains within the green region, in the range of 30 - 40, which
+is very good. 
+
+
+
+#Section 3: Mapping RNA-Seq reads to genome
+
+
+
+>> Q10: Where are most the accepted hits located?
+
+
+A lot of the accepted hits are located around the 38,120,000 to 38,160,000 region.
+
+
+>> Q11: Following Q10, is there any interesting gene around that area?
+
+There is another large group of accepted htis around the 38,060,000 to 38,080,000 region as well. 
+
+
+>> Q12: Cufflinks again produces multiple output files that you can inspect from your right-handside galaxy history. From the “gene expression” output, what is the FPKM for the ORMDL3
+gene? What are the other genes with above zero FPKM values?
+
+
+The FPKM for ORMDL3 is 136853. 
+
+The other genes are:
+
+ZPBP2, 4613.49
+GSDMB, 26366.3
+GSDMA, 133.634
+PSMD3, 299021
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
