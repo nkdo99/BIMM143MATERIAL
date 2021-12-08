@@ -1,6 +1,5 @@
-BIMM 143
-Bioinformatics UCSD Fall 21
-Nicholas Do
+**BIMM 143 Bioinformatics Lab UCSD Fall 21**
+
 
 ## Contents
 -Introduction to R
